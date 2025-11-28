@@ -1,0 +1,16 @@
+package com.pe.Bruma.pedido.api.request;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigInteger;
+import java.util.List;
+
+@Data
+@NoArgsConstructor @AllArgsConstructor @Builder
+public class PedidoCreateRequestDto {
+    private BigInteger mesaId;
+    private List<PedidoDetalleRequestDto> detalle;
+}
