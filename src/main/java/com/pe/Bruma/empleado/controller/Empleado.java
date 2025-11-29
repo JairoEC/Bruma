@@ -1,6 +1,6 @@
 package com.pe.Bruma.empleado.controller;
 
-import com.pe.Bruma.rol.model.Rol;
+import com.pe.Bruma.rol.entity.Rol;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-@Table("tb_empleado")
+@Table(name="empleado")
 public class Empleado {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "empleado_id")

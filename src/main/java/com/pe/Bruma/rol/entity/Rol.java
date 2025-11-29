@@ -1,4 +1,4 @@
-package com.pe.Bruma.rol.model;
+package com.pe.Bruma.rol.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
