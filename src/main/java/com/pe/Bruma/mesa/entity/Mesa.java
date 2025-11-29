@@ -28,6 +28,4 @@ public class Mesa {
     private String cant_personas;
     private boolean disponible;
 
-    @OneToMany(mappedBy = "mesa")
-    private List<Pedido> pedidos;
 }
