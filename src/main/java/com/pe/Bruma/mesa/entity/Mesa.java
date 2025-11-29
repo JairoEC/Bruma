@@ -1,31 +1,25 @@
 package com.pe.Bruma.mesa.entity;
 
-import com.pe.Bruma.pedido.entity.Pedido;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
-import java.math.BigInteger;
-import java.util.List;
 
 @Data
 @Entity
 @Table( name = "mesa")
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Mesa {
 
     @Id
-    private BigInteger mesa_id;
-    private String nombre_mesa;
-    private String cant_personas;
-    private boolean disponible;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "mesa_id")
+    private Long id;
 
+    @Column(name = "nombre_mesa", nullable = false)
+    private String nombreMesa;
+
+    @Column(name = "cant_personas", nullable = false)
+    private String cantPersonas;
+
+    @Column(name = "disponible", nullable = false)
+    private Boolean disponible;
 }
+
