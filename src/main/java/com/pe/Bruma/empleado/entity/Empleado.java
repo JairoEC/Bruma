@@ -1,4 +1,4 @@
-package com.pe.Bruma.empleado.controller;
+package com.pe.Bruma.empleado.entity;
 
 import com.pe.Bruma.rol.entity.Rol;
 import jakarta.persistence.*;
