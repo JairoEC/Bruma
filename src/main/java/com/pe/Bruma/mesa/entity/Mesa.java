@@ -22,4 +22,3 @@ public class Mesa {
     @Column(name = "disponible", nullable = false)
     private Boolean disponible;
 }
-
