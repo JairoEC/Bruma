@@ -30,5 +30,5 @@ public class Mesa {
     private Boolean disponible;
 
     @OneToMany(mappedBy = "mesa")
-    private List<Pedido> pedidos;
+    private List<Pedido> pedido;
 }
