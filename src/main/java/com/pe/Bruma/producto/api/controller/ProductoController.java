@@ -1,8 +1,8 @@
-package com.pe.Bruma.empleado.producto.api.controller;
+package com.pe.Bruma.producto.api.controller;
 
 
-import com.pe.Bruma.empleado.producto.entity.Producto;
-import com.pe.Bruma.empleado.producto.service.ProductoService;
+import com.pe.Bruma.producto.entity.Producto;
+import com.pe.Bruma.producto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
