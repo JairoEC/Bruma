@@ -10,10 +10,12 @@ import org.mapstruct.*;
 public interface MesaMaper {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "pedido", ignore = true)
     Mesa toEntity(MesaCreateRequestDto dto);
 
     MesaResponseDto toResponseDto(Mesa entity);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "pedido", ignore = true)
     void updateEntityFromDto(MesaUpdateRequestDto dto, @MappingTarget Mesa entity);
 }
