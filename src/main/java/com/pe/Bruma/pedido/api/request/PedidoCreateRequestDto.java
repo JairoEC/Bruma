@@ -11,6 +11,5 @@ import java.util.List;
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
 public class PedidoCreateRequestDto {
-    private BigInteger mesaId;
-    private List<PedidoDetalleRequestDto> detalle;
+    private Long mesa_id;
 }

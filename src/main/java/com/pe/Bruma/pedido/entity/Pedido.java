@@ -1,9 +1,7 @@
 package com.pe.Bruma.pedido.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.pe.Bruma.mesa.entity.Mesa;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,12 +18,17 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor @Builder
 public class Pedido {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger pedido_id;
-    private LocalDateTime fecha_pedido;
+    private LocalDateTime fecha_pedido=LocalDateTime.now();
     private BigDecimal total;
     private String estado;
 
     @OneToMany(mappedBy = "pedido")
     private List<DetallePedido> detalle;
+
+    @ManyToOne
+    @JoinColumn(name = "mesa_id")
+    private Mesa mesa;
 
 }

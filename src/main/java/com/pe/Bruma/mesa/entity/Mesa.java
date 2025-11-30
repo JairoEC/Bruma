@@ -1,10 +1,13 @@
 package com.pe.Bruma.mesa.entity;
 
+import com.pe.Bruma.pedido.entity.Pedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -25,4 +28,7 @@ public class Mesa {
 
     @Column(name = "disponible", nullable = false)
     private Boolean disponible;
+
+    @OneToMany(mappedBy = "mesa")
+    private List<Pedido> pedidos;
 }

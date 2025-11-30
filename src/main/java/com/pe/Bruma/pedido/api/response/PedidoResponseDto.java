@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,4 +19,5 @@ public class PedidoResponseDto {
     private BigDecimal total;
     private boolean estado;
     private List<DetallePedido> detalle;
+    private Long mesa_id;
 }
