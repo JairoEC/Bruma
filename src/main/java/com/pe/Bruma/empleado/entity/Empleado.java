@@ -10,20 +10,34 @@ import java.time.LocalDate;
 @Data
 @Table(name="empleado")
 public class Empleado {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "empleado_id")
     private Long id;
 
-    @Column(name = "nombre", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String nombre;
 
-    @Column(name = "apellidos", nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String apellidos;
+
+    @Column(nullable = false, length = 8, unique = true)
+    private String dni;
+
+    @Column(nullable = false, length = 100, unique = true)
+    private String email;
+
+    @Column(length = 9)
+    private String celular;
 
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
-    @OneToMany
+    @Column(nullable = false, length = 20)
+    private String estado;
+
+    // ManyToOne (Muchos empleados -> Un Rol)
+    @ManyToOne
     @JoinColumn(name = "rol_id", nullable = false)
     private Rol rol;
 }
