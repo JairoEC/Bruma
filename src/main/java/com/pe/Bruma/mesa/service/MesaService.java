@@ -1,5 +1,8 @@
 package com.pe.Bruma.mesa.service;
 
+import com.pe.Bruma.mesa.api.request.MesaCreateRequestDto;
+import com.pe.Bruma.mesa.api.request.MesaUpdateRequestDto;
+import com.pe.Bruma.mesa.api.response.MesaResponseDto;
 import com.pe.Bruma.mesa.entity.Mesa;
 import com.pe.Bruma.mesa.repository.MesaRepository;
 import org.springframework.stereotype.Service;
@@ -7,23 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MesaService {
-
-    private final MesaRepository mesaRepository;
-
-    public MesaService(MesaRepository mesaRepository) {
-        this.mesaRepository = mesaRepository;}
-
-    public List<Mesa> obtenerTodas() {
-        return mesaRepository.findAll();}
-
-    public Mesa crear(Mesa mesa) {
-        return mesaRepository.save(mesa);}
-
-    public Mesa actualizar(Mesa mesa) {
-        return mesaRepository.save(mesa);}
-
-    public void eliminar(Long id) {
-        mesaRepository.deleteById(id);
-    }
+public interface  MesaService {
+    MesaResponseDto createMesa(MesaCreateRequestDto dto);
+    List<MesaResponseDto> getAllMesa();
+    MesaResponseDto updateMesa(Long id, MesaUpdateRequestDto dto);
+    void deleteMesa(Long id);
 }

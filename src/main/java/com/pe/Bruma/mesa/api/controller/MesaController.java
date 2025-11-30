@@ -1,7 +1,11 @@
 package com.pe.Bruma.mesa.api.controller;
 
+import com.pe.Bruma.mesa.api.request.MesaCreateRequestDto;
+import com.pe.Bruma.mesa.api.request.MesaUpdateRequestDto;
+import com.pe.Bruma.mesa.api.response.MesaResponseDto;
 import com.pe.Bruma.mesa.entity.Mesa;
 import com.pe.Bruma.mesa.service.MesaService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,27 +23,26 @@ public class MesaController {
     }
 
     @GetMapping
-    public List<Mesa> listar() {
-        return mesaService.obtenerTodas();
+    public ResponseEntity<List<MesaResponseDto>> listar() {
+        return ResponseEntity.ok(mesaService.getAllMesa());
     }
 
     @PostMapping
-    public ResponseEntity<Mesa> crear(@RequestBody Mesa mesa) {
-        Mesa nuevaMesa = mesaService.crear(mesa);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevaMesa);
+    public ResponseEntity<MesaResponseDto> crear(@Valid @RequestBody MesaCreateRequestDto dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(mesaService.createMesa(dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Mesa> actualizar(@PathVariable Long id,
-                                           @RequestBody Mesa datosMesa) {
-        datosMesa.setId(id);
-        Mesa actualizada = mesaService.actualizar(datosMesa);
-        return ResponseEntity.ok(actualizada);
+    public ResponseEntity<MesaResponseDto> actualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody MesaUpdateRequestDto dto
+    ) {
+        return ResponseEntity.ok(mesaService.updateMesa(id, dto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        mesaService.eliminar(id);
+        mesaService.deleteMesa(id);
         return ResponseEntity.noContent().build();
     }
 }
