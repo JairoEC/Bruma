@@ -1,6 +1,6 @@
 package com.pe.Bruma.pedido.entity;
 
-import com.pe.Bruma.empleado.producto.entity.Producto;
+import com.pe.Bruma.producto.entity.Producto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
