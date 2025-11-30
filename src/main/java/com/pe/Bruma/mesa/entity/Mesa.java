@@ -1,11 +1,15 @@
 package com.pe.Bruma.mesa.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table( name = "mesa")
+@AllArgsConstructor @NoArgsConstructor @Builder
 public class Mesa {
 
     @Id

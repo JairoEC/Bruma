@@ -1,11 +1,15 @@
 package com.pe.Bruma.rol.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="rol")
+@AllArgsConstructor @NoArgsConstructor @Builder
 public class Rol {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rol_id")

@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/producto")
+@RequestMapping("/api/producto")
 public class ProductoController {
 
     @Autowired
     private ProductoService service;
 
-    @GetMapping("/listar")
+    @GetMapping()
     public List<Producto> listar() {
         return service.listar();
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/{id}")
     public Producto buscar(@PathVariable Long id) {
         return service.buscarPorId(id);
     }
 
-    @PostMapping("/registrar")
+    @PostMapping()
     public Producto registrar(@RequestBody Producto producto) {
         return service.registrar(producto);
     }
 
-    @PutMapping("/actualizar")
+    @PutMapping()
     public Producto actualizar(@RequestBody Producto producto) {
         return service.actualizar(producto);
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
         service.eliminar(id);
     }

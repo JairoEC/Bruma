@@ -2,13 +2,17 @@ package com.pe.Bruma.empleado.entity;
 
 import com.pe.Bruma.rol.entity.Rol;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
 @Table(name="empleado")
+@AllArgsConstructor @NoArgsConstructor @Builder
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

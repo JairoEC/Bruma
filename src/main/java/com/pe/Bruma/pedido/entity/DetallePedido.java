@@ -1,9 +1,7 @@
 package com.pe.Bruma.pedido.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.pe.Bruma.producto.entity.Producto;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,17 +14,19 @@ import java.math.BigInteger;
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
 public class DetallePedido {
+    @EmbeddedId
+    private DetallePedidoId id;
 
-    private BigInteger pedido_id;
+    private BigInteger cantidad;
 
+    @MapsId("pedido_id")
     @ManyToOne
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
-    /*
+    @MapsId("producto_id")
     @ManyToOne
     @JoinColumn(name = "producto_id")
     private Producto producto;
-    */
 
 }

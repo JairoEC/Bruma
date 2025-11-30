@@ -14,7 +14,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/api/pedido")
 @RequiredArgsConstructor
 public class PedidoController {
     private final PedidoService pedidoService;
