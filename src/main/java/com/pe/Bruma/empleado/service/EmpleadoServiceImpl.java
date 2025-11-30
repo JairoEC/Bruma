@@ -7,6 +7,7 @@ import com.pe.Bruma.empleado.entity.Empleado;
 import com.pe.Bruma.empleado.mapper.EmpleadoMapper;
 import com.pe.Bruma.empleado.repository.EmpleadoRepository;
 import com.pe.Bruma.rol.repository.RolRepository;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -49,18 +50,29 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         return null;
     }
 
+
     @Override
-    public List<EmpleadoResponseDto> getAllEmpleado() {
-        return List.of();
+    @Transactional(readOnly = true)
+    public List<EmpleadoResponseDto> getAllEmpleados() {
+        return empleadoRepo.findAll().stream()
+                .map(empleadoMapper::toResponseDto)
+                .toList();
     }
 
     @Override
     public EmpleadoResponseDto getEmpleadoById(Long id) {
-        return null;
+        Empleado empleadoBuscado = empleadoRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("El empleado con id '" + id + "' no existe."));
+        return empleadoMapper.toResponseDto(empleadoBuscado);
     }
 
     @Override
+    @Transactional
     public void deleteEmpleado(Long id) {
+        Empleado empleadoBuscado = empleadoRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("El empleado con id '" + id + "' no existe."));
+        empleadoBuscado.setEstado("INACTIVO");
+        empleadoRepo.save(empleadoBuscado);
 
     }
 }
