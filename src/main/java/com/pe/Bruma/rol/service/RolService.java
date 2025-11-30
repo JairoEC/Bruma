@@ -11,7 +11,7 @@ import java.util.List;
 public interface RolService {
     RolResponseDto createRol(RolCreateRequestDto dto);
     List<RolResponseDto> getAllRol();
-    RolResponseDto getRoles(Long id);
+    RolResponseDto getRol(Long id);
     void deleteRol(Long id);
     RolResponseDto updateRol(Long id, RolUpdateRequestDto dto);
 }

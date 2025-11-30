@@ -18,6 +18,8 @@ public interface RolMapper {
     // de Entity a Dto
     RolResponseDto toResponseDto(Rol entity);
 
+
+    /// Update (Actualizar)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateEntityFromDto(RolUpdateRequestDto dto, @MappingTarget Rol entity);
 
