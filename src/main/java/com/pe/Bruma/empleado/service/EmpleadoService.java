@@ -10,7 +10,7 @@ public interface EmpleadoService {
     EmpleadoResponseDto createEmpleado (EmpleadoCreateRequestDto dto);
     EmpleadoResponseDto updateEmpleado (Long id, EmpleadoUpdateRequestDto dto);
 
-    List<EmpleadoResponseDto> getAllEmpleado();
+    List<EmpleadoResponseDto> getAllEmpleados();
     EmpleadoResponseDto getEmpleadoById (Long id);
     void deleteEmpleado (Long id);
 }
