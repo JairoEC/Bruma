@@ -20,7 +20,6 @@ public interface EmpleadoMapper {
     EmpleadoResponseDto toResponseDto(Empleado entity);
 
     // 3. UPDATE (ACTUALIZAR)
-    @Mapping(source = "rolId", target = "rol.id")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateEntityFromDto(EmpleadoUpdateRequestDto dto, @MappingTarget Empleado entity);
 
