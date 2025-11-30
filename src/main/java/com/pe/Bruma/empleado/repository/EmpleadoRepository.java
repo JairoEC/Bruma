@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 
-    boolean existsEmailIgnoreCase(String email);
+    boolean existsByEmailIgnoreCase(String email);
     boolean existsByDni(String dni);
 }

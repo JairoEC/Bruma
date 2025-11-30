@@ -31,7 +31,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
             throw new IllegalArgumentException("El empleado con DNI '" + dniLimpio + "' ya existe.");
         }
 
-        if (empleadoRepo.existsEmailIgnoreCase(emailLimpio)) {
+        if (empleadoRepo.existsByEmailIgnoreCase(emailLimpio)) {
             throw new IllegalArgumentException("El empleado con email '" + emailLimpio + "' ya existe.");
         }
 
