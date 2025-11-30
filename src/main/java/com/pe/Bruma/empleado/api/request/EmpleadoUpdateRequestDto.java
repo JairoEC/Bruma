@@ -3,11 +3,16 @@ package com.pe.Bruma.empleado.api.request;
 import com.pe.Bruma.empleado.api.response.EmpleadoResponseDto;
 import com.pe.Bruma.empleado.entity.Empleado;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mapstruct.*;
 
 import java.time.LocalDate;
 
-
+@Data
+@NoArgsConstructor @AllArgsConstructor @Builder
 public class EmpleadoUpdateRequestDto {
 
 

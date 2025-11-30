@@ -1,6 +1,6 @@
-package com.pe.Bruma.producto.repository;
+package com.pe.Bruma.empleado.producto.repository;
 
-import com.pe.Bruma.producto.entity.Producto;
+import com.pe.Bruma.empleado.producto.entity.Producto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

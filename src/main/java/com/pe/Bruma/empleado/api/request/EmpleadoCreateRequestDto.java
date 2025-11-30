@@ -2,14 +2,14 @@ package com.pe.Bruma.empleado.api.request;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor @Builder
 public class EmpleadoCreateRequestDto {
 
     @NotBlank(message = "El nombre es obligatorio")

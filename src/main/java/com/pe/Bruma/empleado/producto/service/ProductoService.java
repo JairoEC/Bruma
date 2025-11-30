@@ -1,7 +1,7 @@
-package com.pe.Bruma.producto.service;
+package com.pe.Bruma.empleado.producto.service;
 
-import com.pe.Bruma.producto.entity.Producto;
-import com.pe.Bruma.producto.repository.ProductoRepository;
+import com.pe.Bruma.empleado.producto.entity.Producto;
+import com.pe.Bruma.empleado.producto.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

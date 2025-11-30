@@ -1,4 +1,4 @@
-package com.pe.Bruma.producto.entity;
+package com.pe.Bruma.empleado.producto.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
