@@ -17,7 +17,8 @@ public class PedidoResponseDto {
     private String pedido_id;
     private LocalDateTime fecha_pedido;
     private BigDecimal total;
-    private boolean estado;
-    private List<DetallePedido> detalle;
+    private String estado;
+    private List<DetallePedidoResponseDto> detalle;
     private Long mesa_id;
 }
+

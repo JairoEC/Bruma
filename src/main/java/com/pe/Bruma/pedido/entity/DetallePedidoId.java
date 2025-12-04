@@ -2,6 +2,7 @@ package com.pe.Bruma.pedido.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +11,8 @@ import java.math.BigInteger;
 
 @Embeddable
 @Data
-@AllArgsConstructor @NoArgsConstructor
+@AllArgsConstructor @NoArgsConstructor @Builder
 public class DetallePedidoId implements Serializable {
     private BigInteger pedido_id;
-    private BigInteger producto_id;
+    private Long producto_id;
 }

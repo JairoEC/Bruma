@@ -24,7 +24,7 @@ public class Pedido {
     private BigDecimal total;
     private String estado;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<DetallePedido> detalle;
 
     @ManyToOne

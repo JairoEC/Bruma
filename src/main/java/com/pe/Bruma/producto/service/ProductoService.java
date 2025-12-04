@@ -22,6 +22,7 @@ public class ProductoService {
     }
 
     public Producto registrar(Producto producto) {
+        producto.setActivo(true);
         return repo.save(producto);
     }
 

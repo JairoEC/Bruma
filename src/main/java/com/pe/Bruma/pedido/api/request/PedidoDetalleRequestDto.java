@@ -10,6 +10,6 @@ import java.math.BigInteger;
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
 public class PedidoDetalleRequestDto {
-    private BigInteger productoId;
-    private Integer cantidad;
+    private Long productoId;
+    private BigInteger cantidad;
 }

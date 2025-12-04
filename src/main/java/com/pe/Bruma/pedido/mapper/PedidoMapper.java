@@ -7,7 +7,7 @@ import com.pe.Bruma.pedido.api.response.PedidoResponseDto;
 import com.pe.Bruma.pedido.entity.Pedido;
 import org.mapstruct.*;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {DetallePedidoMapper.class})
 public interface PedidoMapper {
     @Mappings({
             @Mapping(target = "mesa", source = "mesa_id", qualifiedByName = "mapMesaId"),

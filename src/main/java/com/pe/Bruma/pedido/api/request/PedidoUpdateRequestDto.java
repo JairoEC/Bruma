@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor @Builder
 public class PedidoUpdateRequestDto {
     private LocalDateTime fechaPedido;
-    private BigInteger mesaId;
+    private Long mesaId;
     private List<PedidoDetalleRequestDto> detalles;
     private String estado;
 }

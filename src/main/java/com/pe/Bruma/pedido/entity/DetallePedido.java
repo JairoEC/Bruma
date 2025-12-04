@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
@@ -18,6 +19,7 @@ public class DetallePedido {
     private DetallePedidoId id;
 
     private BigInteger cantidad;
+    private BigDecimal subtotal;
 
     @MapsId("pedido_id")
     @ManyToOne
@@ -25,7 +27,7 @@ public class DetallePedido {
     private Pedido pedido;
 
     @MapsId("producto_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
