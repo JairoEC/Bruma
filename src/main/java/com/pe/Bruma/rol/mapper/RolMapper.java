@@ -7,6 +7,8 @@ import com.pe.Bruma.rol.entity.Rol;
 import org.mapstruct.*;
 import org.springframework.jmx.export.annotation.ManagedNotification;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RolMapper {
 
@@ -14,6 +16,8 @@ public interface RolMapper {
     @Mapping(target = "estado", constant = "ACTIVO")
     @Mapping(target = "id", ignore = true)
     Rol toEntity(RolCreateRequestDto dto);
+
+    List<RolResponseDto> toResponseDtoList(List<Rol> entities);
 
     // de Entity a Dto
     RolResponseDto toResponseDto(Rol entity);

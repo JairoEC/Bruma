@@ -1,15 +1,18 @@
-package com.pe.Bruma.empleado.api.response;
+package com.pe.Bruma.usuario.api.response;
 
+import com.pe.Bruma.rol.api.response.RolResponseDto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class EmpleadoResponseDto {
+@NoArgsConstructor @Builder
+public class UsuarioResponseDto {
     private Long id;
     private String nombre;
     private String apellidos;
@@ -19,6 +22,5 @@ public class EmpleadoResponseDto {
     private LocalDate fechaNacimiento;
     private String estado;
 
-    private Long rolId;
-    private String rolNombre;
+    private List<RolResponseDto> roles;
 }

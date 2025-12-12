@@ -1,4 +1,4 @@
-package com.pe.Bruma.empleado.api.request;
+package com.pe.Bruma.usuario.api.request;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -7,10 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
-public class EmpleadoCreateRequestDto {
+public class UsuarioCreateRequestDto {
 
     @NotBlank(message = "El nombre es obligatorio")
     @Size(max = 50, message = "El nombre no puede exceder los 50 caracteres")
@@ -37,6 +38,8 @@ public class EmpleadoCreateRequestDto {
     @Past(message = "La fecha de nacimiento debe ser una fecha pasada")
     private LocalDate fechaNacimiento;
 
-    @NotNull(message = "El ID del rol es obligatorio")
-    private Long rolId;
+    private List<Long> roles;
+
+    @NotNull(message = "La contraseña es obligatoria")
+    private String password;
 }

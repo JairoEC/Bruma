@@ -8,5 +8,4 @@ public interface RolRepository extends JpaRepository <Rol, Long >{
 //METODOS PERSONALIZADOS
     boolean existsByNombreIgnoreCase(String nombre);
 
-
 }

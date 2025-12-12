@@ -1,19 +1,16 @@
-package com.pe.Bruma.empleado.api.request;
+package com.pe.Bruma.usuario.api.request;
 
-import com.pe.Bruma.empleado.api.response.EmpleadoResponseDto;
-import com.pe.Bruma.empleado.entity.Empleado;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.mapstruct.*;
 
 import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
-public class EmpleadoUpdateRequestDto {
+public class UsuarioUpdateRequestDto {
 
 
     @Pattern(regexp = ".*\\S.*", message = "El nombre no puede estar vacío ni tener solo espacios")
@@ -46,4 +43,6 @@ public class EmpleadoUpdateRequestDto {
 
     @Pattern(regexp = "ACTIVO|INACTIVO", message = "El estado debe ser 'ACTIVO' o 'INACTIVO'")
     private String estado;
+
+    private String password;
 }
