@@ -53,7 +53,7 @@ public class Usuario implements UserDetails {
     // ManyToOne (Muchos empleados -> Muchos Roles)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name="tbl_usuario_rol",
+            name="usuario_rol",
             joinColumns = @JoinColumn(name="usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id")
     )

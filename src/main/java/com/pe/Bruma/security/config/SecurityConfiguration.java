@@ -38,7 +38,7 @@ public class SecurityConfiguration {
                 ).httpBasic(Customizer.withDefaults());
         return http.build();
     }
-    /*
+
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -50,5 +50,5 @@ public class SecurityConfiguration {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
         return config.getAuthenticationManager();
     }
-    */
+
 }

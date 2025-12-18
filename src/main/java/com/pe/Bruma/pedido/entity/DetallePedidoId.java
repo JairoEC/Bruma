@@ -13,6 +13,6 @@ import java.math.BigInteger;
 @Data
 @AllArgsConstructor @NoArgsConstructor @Builder
 public class DetallePedidoId implements Serializable {
-    private BigInteger pedido_id;
+    private Long pedido_id;
     private Long producto_id;
 }

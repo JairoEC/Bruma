@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor @NoArgsConstructor @Builder
 public class PedidoResponseDto {
-    private String pedido_id;
+    private Long pedido_id;
     private LocalDateTime fecha_pedido;
     private BigDecimal total;
     private String estado;
