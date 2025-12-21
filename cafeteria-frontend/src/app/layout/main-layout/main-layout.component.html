@@ -4,19 +4,27 @@
     <div>BRUMA CAFETERÍA</div>
   </div>
 
-  <div class="nav-menu">
-    <a routerLink="/home" routerLinkActive="active" class="nav-link">👥 Empleados</a>
-    <a routerLink="/mesas" routerLinkActive="active" class="nav-link">🪑 Mesas</a>
+  <button class="hamburger" (click)="toggleMenu()">
+    <i class="bi" [ngClass]="menuAbierto ? 'bi-x-lg' : 'bi-list'"></i>
+  </button>
 
-    <div class="divider"></div>
+  <div class="nav-menu" [class.show]="menuAbierto">
+    <a routerLink="/home" routerLinkActive="active" (click)="cerrarMenu()" class="nav-link">👥 Empleados</a>
 
-    <a routerLink="/cafes" routerLinkActive="active" class="nav-link">☕ Cafés</a>
-    <a routerLink="/bebidas" routerLinkActive="active" class="nav-link">🥤 Bebidas</a>
-    <a routerLink="/comida" routerLinkActive="active" class="nav-link">🍔 Comida</a>
-    <a routerLink="/postres" routerLinkActive="active" class="nav-link">🍰 Postres</a>
+    <div class="divider">|</div>
+    <a routerLink="/mesas" routerLinkActive="active" (click)="cerrarMenu()" class="nav-link">🪑 Mesas</a>
+
+    <a routerLink="/cafes" routerLinkActive="active" (click)="cerrarMenu()" class="nav-link">☕ Cafés</a>
+    <a routerLink="/bebidas" routerLinkActive="active" (click)="cerrarMenu()" class="nav-link">🥤 Bebidas</a>
+    <a routerLink="/comida" routerLinkActive="active" (click)="cerrarMenu()" class="nav-link">🍔 Comida</a>
+    <a routerLink="/postres" routerLinkActive="active" (click)="cerrarMenu()" class="nav-link">🍰 Postres</a>
+
+    <button (click)="onLogout()" class="btn-logout-mobile">
+      Salir 🚪
+    </button>
   </div>
 
-  <button (click)="onLogout()" class="btn-logout">
+  <button (click)="onLogout()" class="btn-logout-desktop">
     <span>Salir</span> 🚪
   </button>
 </nav>
