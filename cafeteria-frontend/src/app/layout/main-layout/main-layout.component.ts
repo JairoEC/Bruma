@@ -11,6 +11,18 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrl: './main-layout.component.scss'
 })
 export class MainLayoutComponent {
+
+  menuAbierto = false; // Variable para controlar el sándwich
+
+  toggleMenu() {
+    this.menuAbierto = !this.menuAbierto;
+  }
+
+  // Al hacer clic en un link, cerramos el menú (buena práctica en móviles)
+  cerrarMenu() {
+    this.menuAbierto = false;
+  }
+
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   onLogout() {
