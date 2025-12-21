@@ -1,0 +1,26 @@
+<nav class="navbar-bruma">
+  <div class="logo-section">
+    <span>☕</span>
+    <div>BRUMA CAFETERÍA</div>
+  </div>
+
+  <div class="nav-menu">
+    <a routerLink="/home" routerLinkActive="active" class="nav-link">👥 Empleados</a>
+    <a routerLink="/mesas" routerLinkActive="active" class="nav-link">🪑 Mesas</a>
+
+    <div class="divider"></div>
+
+    <a routerLink="/cafes" routerLinkActive="active" class="nav-link">☕ Cafés</a>
+    <a routerLink="/bebidas" routerLinkActive="active" class="nav-link">🥤 Bebidas</a>
+    <a routerLink="/comida" routerLinkActive="active" class="nav-link">🍔 Comida</a>
+    <a routerLink="/postres" routerLinkActive="active" class="nav-link">🍰 Postres</a>
+  </div>
+
+  <button (click)="onLogout()" class="btn-logout">
+    <span>Salir</span> 🚪
+  </button>
+</nav>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
