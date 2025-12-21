@@ -1,6 +1,6 @@
 package com.pe.Bruma.usuario.service;
 
-import com.pe.Bruma.security.service.Impl.UserDetailServiceImpl;
+import com.pe.Bruma.auth.UserDetailServiceImpl;
 import com.pe.Bruma.usuario.api.request.UsuarioCreateRequestDto;
 import com.pe.Bruma.usuario.api.request.UsuarioUpdateRequestDto;
 import com.pe.Bruma.usuario.api.response.UsuarioResponseDto;

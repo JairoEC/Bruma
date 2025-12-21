@@ -26,5 +26,5 @@ public class Producto {
     private Boolean activo;
 
     @Version
-    private Integer version; // control de concurrencia optimista
+    private Integer version;
 }

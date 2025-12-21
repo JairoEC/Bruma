@@ -15,6 +15,7 @@ import com.pe.Bruma.pedido.repository.PedidoRepository;
 import com.pe.Bruma.producto.entity.Producto;
 import com.pe.Bruma.producto.repository.ProductoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -23,14 +24,18 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class PedidoServiceImpl implements PedidoService {
-    private final PedidoRepository pedidoRepository;
-    private final MesaRepository mesaRepository;
-    private final ProductoRepository productoRepository;
-    private final MesaMaper mesaMapper;
+    @Autowired
+    private  PedidoRepository pedidoRepository;
+    @Autowired
+    private  MesaRepository mesaRepository;
+    @Autowired
+    private  ProductoRepository productoRepository;
+    @Autowired
+    private  MesaMaper mesaMapper;
 
-    private final PedidoMapper mapper;
+    @Autowired
+    private  PedidoMapper mapper;
     @Override
     public PedidoResponseDto createPedido(PedidoCreateRequestDto dto) {
         Mesa mesa = mesaRepository.findById(dto.getMesa_id()).orElse(null);

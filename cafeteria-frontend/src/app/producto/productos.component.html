@@ -1,0 +1,53 @@
+<div class="main-container">
+
+  <div class="table-header">
+    <h1>Gestión de Productos</h1>
+
+    <button class="btn-new" routerLink="/producto/form">
+      <i class="bi bi-plus-circle-fill"></i> + Nuevo Producto
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="custom-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.categoria }}</td>
+        <td>S/ {{ producto.precio }}</td>
+        <td>
+            <span
+              class="status-badge"
+              [ngClass]="producto.estado === 'ACTIVO' ? 'active' : 'inactive'">
+              {{ producto.estado }}
+            </span>
+        </td>
+        <td>
+          <button
+            class="btn-edit"
+            [routerLink]="['/producto/form', producto.id]">
+            Editar ✏️
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="productos.length === 0" class="empty-state">
+    <p>No hay productos registrados.</p>
+  </div>
+
+</div>
