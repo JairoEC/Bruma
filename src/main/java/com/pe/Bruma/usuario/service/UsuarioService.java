@@ -13,4 +13,5 @@ public interface UsuarioService {
     List<UsuarioResponseDto> getAllEmpleados();
     UsuarioResponseDto getEmpleadoById (Long id);
     void deleteEmpleado (Long id);
+    UsuarioResponseDto findByDni(String dni);
 }

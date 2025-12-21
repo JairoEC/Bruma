@@ -1,13 +1,17 @@
 package com.pe.Bruma.usuario.api.controller;
 
+import com.pe.Bruma.security.service.Impl.UserDetailServiceImpl;
 import com.pe.Bruma.usuario.api.request.UsuarioCreateRequestDto;
 import com.pe.Bruma.usuario.api.request.UsuarioUpdateRequestDto;
 import com.pe.Bruma.usuario.api.response.UsuarioResponseDto;
+import com.pe.Bruma.usuario.entity.Usuario;
 import com.pe.Bruma.usuario.service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,5 +59,13 @@ public class UsuarioController {
                                                      @Valid @RequestBody UsuarioUpdateRequestDto dto) {
         UsuarioResponseDto empleadoActualizado = usuarioService.updateEmpleado(id, dto);
         return ResponseEntity.ok(empleadoActualizado);
+    }
+
+    @PostMapping("/auth")
+    public ResponseEntity<UsuarioResponseDto> getUsuario(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        UsuarioResponseDto usuarioDto = usuarioService.findByDni(username);
+        return ResponseEntity.ok(usuarioDto);
     }
 }

@@ -1,5 +1,6 @@
 package com.pe.Bruma.usuario.service;
 
+import com.pe.Bruma.security.service.Impl.UserDetailServiceImpl;
 import com.pe.Bruma.usuario.api.request.UsuarioCreateRequestDto;
 import com.pe.Bruma.usuario.api.request.UsuarioUpdateRequestDto;
 import com.pe.Bruma.usuario.api.response.UsuarioResponseDto;
@@ -8,6 +9,8 @@ import com.pe.Bruma.usuario.mapper.UsuarioMapper;
 import com.pe.Bruma.usuario.repository.UsuarioRepository;
 import com.pe.Bruma.rol.entity.Rol;
 import com.pe.Bruma.rol.repository.RolRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +27,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     private final RolRepository rolRepo;
     private final UsuarioMapper usuarioMapper;
     private final PasswordEncoder passwordEncoder;
+    private final UserDetailServiceImpl userDetailService;
 
     @Override
     public UsuarioResponseDto createEmpleado(UsuarioCreateRequestDto dto) {
@@ -118,5 +122,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioBuscado.setEstado("INACTIVO");
         usuarioRepo.save(usuarioBuscado);
 
+    }
+    @Override
+    public UsuarioResponseDto findByDni(String dni){
+        Usuario usuario = usuarioRepo.findByDni(dni)
+                .orElseThrow(()-> new UsernameNotFoundException("No encontrado"));
+        return usuarioMapper.toResponseDto(usuario);
     }
 }
