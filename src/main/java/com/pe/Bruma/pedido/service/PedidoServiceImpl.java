@@ -52,19 +52,19 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public PedidoResponseDto getPedido(BigInteger id) {
+    public PedidoResponseDto getPedido(Long id) {
         Pedido entity = pedidoRepository.findById(id).orElseThrow(()-> new RuntimeException());
         return mapper.toResponseDto(entity);
     }
 
     @Override
-    public void deletePedido(BigInteger id) {
+    public void deletePedido(Long id) {
         Pedido entity = pedidoRepository.findById(id).orElseThrow(()-> new RuntimeException());
         pedidoRepository.deleteById(id);
     }
 
     @Override
-    public PedidoResponseDto updatePedido(BigInteger id, PedidoUpdateRequestDto dto) {
+    public PedidoResponseDto updatePedido(Long id, PedidoUpdateRequestDto dto) {
         Pedido entity = pedidoRepository.findById(id).orElseThrow(()-> new RuntimeException());
         if(dto.getFechaPedido()!=null){
             entity.setFecha_pedido(dto.getFechaPedido());

@@ -10,7 +10,7 @@ import java.util.List;
 public interface PedidoService {
     PedidoResponseDto createPedido(PedidoCreateRequestDto dto);
     List<PedidoResponseDto> getAllPedido();
-    PedidoResponseDto getPedido(BigInteger id);
-    void deletePedido(BigInteger id);
-    PedidoResponseDto updatePedido(BigInteger id, PedidoUpdateRequestDto dto);
+    PedidoResponseDto getPedido(Long id);
+    void deletePedido(Long id);
+    PedidoResponseDto updatePedido(Long id, PedidoUpdateRequestDto dto);
 }

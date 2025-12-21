@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header bg-primary text-white text-center">
+          <h3 class="font-weight-light my-2">Cafetería Bruma</h3>
+        </div>
+
+        <div class="card-body">
+          <form (ngSubmit)="login()">
+
+            <div class="form-floating mb-3">
+              <label class="small mb-1" for="inputUser"></label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input class="form-control" id="inputUser" type="text"
+                       placeholder="Ingrese su DNI"
+                       [(ngModel)]="username" name="username" required />
+              </div>
+            </div>
+
+            <div class="form-floating mb-3">
+              <label class="small mb-1" for="inputPassword"></label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input class="form-control" id="inputPassword" type="password"
+                       placeholder="Ingrese su clave"
+                       [(ngModel)]="password" name="password" required />
+              </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+              <button class="btn btn-primary btn-block" type="submit">
+                INGRESAR
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="card-footer text-center py-3">
+          <div class="small"><a href="#" class="text-muted">¿Olvidaste tu contraseña?</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

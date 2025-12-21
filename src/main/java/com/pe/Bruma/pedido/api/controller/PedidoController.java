@@ -29,11 +29,11 @@ public class PedidoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(entity);
     }
     @PutMapping("/{id}")
-    public PedidoResponseDto actualizar(@PathVariable BigInteger id, @Valid @RequestBody PedidoUpdateRequestDto request){
+    public PedidoResponseDto actualizar(@PathVariable Long id, @Valid @RequestBody PedidoUpdateRequestDto request){
         return pedidoService.updatePedido(id, request);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable BigInteger id){
+    public ResponseEntity<Void> eliminar(@PathVariable Long id){
         pedidoService.deletePedido(id);
         return ResponseEntity.noContent().build();
     }
