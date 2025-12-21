@@ -1,30 +1,45 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // <--- Importante para los inputs
-import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router'; // Importante Router
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule], // <--- Agregamos los módulos necesarios
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
-  username: string = '';
-  password: string = '';
+  credenciales = {
+    email: '',
+    password: ''
+  };
 
-  constructor(private router: Router) { }
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {}
 
   login() {
-    console.log('Datos capturados:', this.username, this.password);
+    console.log('Intentando loguear...', this.credenciales);
 
-    // Prueba rápida de simulación
-    if(this.username === '12345678' && this.password === '123456') {
-      alert("¡LOGIN EXITOSO! 🎉 Bienvenido Admin");
-    } else {
-      alert("Error: Credenciales incorrectas ❌");
-    }
+    this.usuarioService.login(this.credenciales).subscribe({
+      next: (resp: any) => {
+        console.log('Login exitoso. Token recibido:', resp.token);
+
+        // 1. GUARDAR EL TOKEN (La llave maestra)
+        localStorage.setItem('token', resp.token);
+
+        // 2. REDIRIGIR AL HOME
+        this.router.navigate(['/home']);
+      },
+      error: (e: any) => {
+        console.error('Error de login:', e);
+        alert('Credenciales incorrectas o error en el servidor.');
+      }
+    });
   }
 }

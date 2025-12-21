@@ -1,6 +1,6 @@
-package com.pe.Bruma.security.service.Impl;
+package com.pe.Bruma.auth;
 
-import com.pe.Bruma.usuario.repository.UsuarioRepository;
+import com.pe.Bruma.usuario.repository.UsuarioRepository; // 2. Importa TU repositorio
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserDetailServiceImpl implements UserDetailsService {
-    private final UsuarioRepository usuarioRepository;
+
+    private final UsuarioRepository usuarioRepo;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserDetails persona = usuarioRepository
-                .findByDni(username)
-                .orElseThrow(()-> new UsernameNotFoundException("Usuario no encontrado"));
-        return persona;
+        // 3. CORRECCIÓN: Usamos 'findByEmail' porque tu entidad tiene el campo 'email'.
+        // El parámetro 'username' aquí trae lo que el usuario escribió en el login (el correo).
+        return usuarioRepo.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con email: " + username));
     }
 }

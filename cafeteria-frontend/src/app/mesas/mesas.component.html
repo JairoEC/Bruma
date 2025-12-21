@@ -1,0 +1,20 @@
+<div class="header-mesas">
+  <h2><i class="bi bi-cup-hot"></i> Cafetería - Sistema para Mozos</h2>
+  <p>Selecciona una mesa para tomar pedido</p>
+</div>
+
+<div class="grid-container">
+  <div *ngFor="let mesa of mesas" class="card-mesa">
+    <div class="card-content">
+      <h3>{{ mesa.nombreMesa }}</h3>
+      <p><i class="bi bi-people"></i> {{ mesa.cantPersonas }} pers.</p>
+
+      <button [class]="mesa.disponible ? 'btn-disponible' : 'btn-ocupada'">
+        {{ mesa.disponible ? 'Disponible' : 'Ocupada' }}
+      </button>
+
+      <button class="btn-atender" *ngIf="mesa.disponible">Atender</button>
+      <button class="btn-ver" *ngIf="!mesa.disponible">Ver Pedido</button>
+    </div>
+  </div>
+</div>
