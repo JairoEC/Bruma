@@ -1,0 +1,91 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5; // Fondo gris muy claro como la imagen
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 30px; // Bordes muy redondeados
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 30px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+}
+
+.input-group-custom {
+  margin-bottom: 15px;
+
+  input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &:focus {
+      border-color: #ff6d00; // Naranja al enfocar
+    }
+  }
+}
+
+.btn-login {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff6d00; // El naranja de tu imagen
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: #e65100;
+  }
+}
+
+.login-footer {
+  margin-top: 25px;
+  font-size: 1rem;
+  color: #333;
+
+  a {
+    color: #ff6d00;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

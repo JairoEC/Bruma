@@ -1,0 +1,50 @@
+<div class="main-container">
+
+  <div class="table-header">
+    <h1>Gestión de Empleados</h1>
+    <button class="btn-new" routerLink="/empleado/form">
+      <i class="bi bi-person-plus-fill"></i> + Nuevo Empleado
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="custom-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>DNI</th>
+        <th>Email</th>
+        <th>Celular</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{ empleado.id }}</td>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.apellidos }}</td>
+        <td>{{ empleado.dni }}</td>
+        <td>{{ empleado.email }}</td>
+        <td>{{ empleado.celular }}</td>
+        <td>
+            <span class="status-badge" [ngClass]="empleado.estado === 'ACTIVO' ? 'active' : 'inactive'">
+              {{ empleado.estado }}
+            </span>
+        </td>
+        <td>
+          <button [routerLink]="['/empleado/form', empleado.id]" class="btn-edit">
+            Editar ✏️
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="empleados.length === 0" class="empty-state">
+    <p>No hay datos para mostrar. Verifica que Java esté corriendo y tengas datos en la BD.</p>
+  </div>
+</div>

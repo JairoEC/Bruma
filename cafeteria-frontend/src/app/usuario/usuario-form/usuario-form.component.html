@@ -1,0 +1,69 @@
+<div class="form-container">
+  <div class="form-card">
+    <div class="form-header">
+      <h2>{{ usuarioId ? 'Editar Empleado' : 'Registrar Nuevo Empleado' }}</h2>
+      <p>Completa la información del personal</p>
+    </div>
+
+    <form (ngSubmit)="guardar()" #f="ngForm" class="custom-form">
+
+      <div class="form-grid">
+        <div class="input-group">
+          <label>Nombre</label>
+          <input type="text" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required placeholder="Ej. Juan">
+        </div>
+
+        <div class="input-group">
+          <label>Apellidos</label>
+          <input type="text" name="apellidos" [(ngModel)]="nuevoUsuario.apellidos" required placeholder="Ej. Pérez">
+        </div>
+
+        <div class="input-group">
+          <label>DNI</label>
+          <input type="text" name="dni" [(ngModel)]="nuevoUsuario.dni" required placeholder="8 dígitos">
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" name="email" [(ngModel)]="nuevoUsuario.email" required placeholder="correo@ejemplo.com">
+        </div>
+
+        <div class="input-group">
+          <label>Celular</label>
+          <input type="text" name="celular" [(ngModel)]="nuevoUsuario.celular" required placeholder="999888777">
+        </div>
+
+        <div class="input-group">
+          <label>Fecha de Nacimiento</label>
+          <input type="date" name="fechaNacimiento" [(ngModel)]="nuevoUsuario.fechaNacimiento" required>
+        </div>
+
+        <div class="input-group full-width">
+          <label>
+            Contraseña
+            <small>{{ usuarioId ? '(Opcional para cambios)' : '(Obligatoria)' }}</small>
+          </label>
+          <input type="password" name="password" [(ngModel)]="nuevoUsuario.password" [required]="!usuarioId" placeholder="********">
+        </div>
+
+        <div class="input-group full-width" *ngIf="usuarioId">
+          <label>Estado del Empleado</label>
+          <select name="estado" [(ngModel)]="nuevoUsuario.estado">
+            <option value="ACTIVO">ACTIVO 🟢</option>
+            <option value="INACTIVO">INACTIVO 🔴</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="f.invalid" class="btn-submit">
+          {{ usuarioId ? 'Actualizar Datos' : 'Registrar Empleado' }}
+        </button>
+        <button type="button" routerLink="/home" class="btn-cancel">
+          Cancelar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
